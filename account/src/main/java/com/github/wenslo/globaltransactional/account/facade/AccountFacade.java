@@ -22,7 +22,7 @@ public class AccountFacade {
     private OrderFeign orderFeign;
 
     @RequestMapping("save")
-    @GlobalTransactional(timeoutMills = 3000, name = "order-tx")
+    @GlobalTransactional(timeoutMills = 3000, name = "account-order-tx")
     public String save(Account account) {
         log.info("invoke account save--------------------------");
         Account saved = accountRepository.save(account);

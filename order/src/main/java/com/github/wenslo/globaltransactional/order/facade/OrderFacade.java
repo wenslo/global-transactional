@@ -2,6 +2,7 @@ package com.github.wenslo.globaltransactional.order.facade;
 
 import com.github.wenslo.globaltransactional.order.entity.Order;
 import com.github.wenslo.globaltransactional.order.repository.OrderRepository;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ public class OrderFacade {
     private OrderRepository orderRepository;
 
     @RequestMapping("order")
+    @GlobalTransactional(timeoutMills = 3000, name = "account-order-tx")
     public String order(Long accountId, String accountName) {
         log.info("order's order invoked, accountId is {}, accountName is {}", accountId, accountName);
         for (int i = 0; i < 20; i++) {
