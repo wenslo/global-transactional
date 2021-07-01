@@ -42,3 +42,10 @@ feign:
         readTimeout: 60000
   hystrix:
     enabled: false
+seata:
+  enabled: true
+  application-id: account
+  enable-auto-data-source-proxy: true
+  tx-service-group: seata_test_tx_group
+  config:
+    type: file

@@ -43,3 +43,6 @@ feign:
         readTimeout: 60000
   hystrix:
     enabled: false
+seata:
+  service:
+    grouplist: "127.0.0.1:8091"
