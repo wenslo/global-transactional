@@ -1,0 +1,23 @@
+server:
+  port: 8761
+eureka:
+  instance:
+    hostname: localhost # 主机名
+    lease-renewal-interval-in-seconds: 10
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
+    register-with-eureka: false
+    fetch-registry: false
+    healthcheck:
+      enabled: false
+    registry-fetch-interval-seconds: 5
+  server:
+    enable-self-preservation: false # 关闭自我保护机制
+    eviction-interval-timer-in-ms: 3000 # 检查服务的时间间隔
+    wait-time-in-ms-when-sync-empty: 0
+    use-read-only-response-cache: false
+    renewal-percent-threshold: 0.45
+logging:
+  level:
+    com.netflix: warn #取消监控时间的日志打印
